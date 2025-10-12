@@ -1,7 +1,7 @@
 {
     "name": "nabila/laravel-translation-sync",
     "description": "A Laravel package to detect untranslated strings and automatically translate them using various translation services like Google Translate, DeepL, and more.",
-    "version": "2.0.1",
+    "version": "2.1.0",
     "type": "library",
     "keywords": [
         "laravel",
