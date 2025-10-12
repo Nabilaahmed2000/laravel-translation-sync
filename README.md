@@ -1,16 +1,42 @@
 # Laravel Translation Sync
 
-A powerful Laravel package that automatically detects untranslated strings in your application and provides automatic translation capabilities using various translation services.
+A powerful Laravel package that automatically detects untranslated strings in your application and provides automatic translation capabilities using **free** translation services.
 
-## Features
+## ✨ Features
 
 - 🔍 **Smart Detection**: Scans your entire Laravel application for untranslated strings
-- 🌐 **Auto Translation**: Automatically translates missing translations using Google Translate, DeepL, or other services
+- 🌐 **Free Auto Translation**: Uses LibreTranslate and MyMemory (completely free, no API keys needed!)
 - 📊 **Translation Statistics**: Get detailed insights about your translation coverage
 - 🔧 **Flexible Configuration**: Customizable scan paths, file formats, and translation patterns
 - 🎯 **Multiple File Formats**: Support for both JSON and PHP translation files
 - 📱 **Rich Console Interface**: Beautiful command-line interface with progress indicators
 - 🛡️ **Safe Operation**: Dry-run mode to preview changes before applying them
+
+## 🚀 Quick Start (5 minutes!)
+
+### 1. Install the Package
+
+```bash
+composer require nabila/laravel-translation-sync
+```
+
+### 2. Publish Configuration
+
+```bash
+php artisan vendor:publish --tag=translation-sync-config
+```
+
+### 3. Start Translating! (No API keys needed!)
+
+```bash
+# Scan and auto-translate using FREE services
+php artisan translations:sync --translate --auto
+
+# Check your translation coverage
+php artisan translations:sync --stats
+```
+
+That's it! 🎉 Your Laravel app now has automatic translation capabilities using completely free services.
 
 ## Installation
 
@@ -24,6 +50,22 @@ Publish the configuration file:
 
 ```bash
 php artisan vendor:publish --tag=translation-sync-config
+```
+
+## ⚡ Zero-Configuration Setup
+
+The package comes pre-configured to work with **free translation services**. No API keys, no billing setup required!
+
+```env
+# Your .env file (these are the defaults)
+TRANSLATION_SERVICE=libretranslate  # Free service!
+TRANSLATION_AUTO_TRANSLATE=true
+```
+
+Start using it immediately:
+
+```bash
+php artisan translations:sync --translate --auto
 ```
 
 ## Configuration
@@ -58,11 +100,13 @@ return [
 Add these to your `.env` file:
 
 ```env
-TRANSLATION_SERVICE=libretranslate
+TRANSLATION_SERVICE=libretranslate  # FREE - No API key needed!
 TRANSLATION_SOURCE_LANG=en
 TRANSLATION_AUTO_TRANSLATE=true
 # No API key needed for free services!
 ```
+
+> 🎉 **No billing, no API keys, no setup required!** The package uses free translation services by default.
 
 > 📋 **Need help getting a Google Translate API key?** Check out our [Quick Setup Guide](GOOGLE_TRANSLATE_SETUP.md) for step-by-step instructions!
 
@@ -489,14 +533,12 @@ If you discover any security vulnerabilities or bugs, please send an e-mail to t
 ## Changelog
 
 ### v2.0.0 (Enhanced Version)
-- ✨ Added automatic translation capabilities
-- 🌐 Support for multiple translation services (Google Translate, DeepL, etc.)
-- 📊 Translation statistics and coverage reports
-- 🎯 Enhanced scanning with context awareness
-- 🔧 Comprehensive configuration options
-- 📱 Improved command-line interface
-- 🛡️ Dry-run mode for safe operations
-- 📝 Support for both JSON and PHP translation files
+- ✨ **FREE Translation Services**: Added LibreTranslate and MyMemory (no API keys needed!)
+- 🌐 **Zero-Configuration**: Works out-of-the-box with free services
+- 📦 **Packagist Ready**: Proper versioning and composer configuration
+- 🔧 **Enhanced Configuration**: LibreTranslate as default free service
+- 🎯 **Improved Documentation**: Clear installation and usage guides
+- 🧪 **Better Testing**: Support for free service testing
 
 ### v1.0.0 (Original Version)
 - 🔍 Basic translation key detection
