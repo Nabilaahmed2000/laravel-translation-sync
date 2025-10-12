@@ -38,6 +38,14 @@ php artisan translations:sync --stats
 
 That's it! 🎉 Your Laravel app now has automatic translation capabilities using completely free services.
 
+## Requirements
+
+- **PHP**: >= 8.0
+- **Laravel**: 9.x, 10.x, 11.x, 12.x
+- **Composer**: Latest stable version
+
+## 🚀 Quick Start (5 minutes!)
+
 ## Installation
 
 Install the package via Composer:
@@ -544,6 +552,11 @@ This package is open-sourced software licensed under the [MIT license](LICENSE.m
 If you discover any security vulnerabilities or bugs, please send an e-mail to the package maintainer.
 
 ## Changelog
+
+### v2.0.1 (Compatibility Update)
+- 🔧 **Broader Laravel Support**: Now compatible with Laravel 9.x, 10.x, 11.x, and 12.x
+- 📦 **Updated Dependencies**: More flexible version constraints for better compatibility
+- 🧪 **Enhanced Testing**: Support for multiple PHPUnit and Testbench versions
 
 ### v2.0.0 (Enhanced Version)
 - ✨ **FREE Translation Services**: Added LibreTranslate and MyMemory (no API keys needed!)
