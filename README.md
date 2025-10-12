@@ -97,17 +97,25 @@ The package comes with a comprehensive configuration file. Here are the key sett
 // config/translation-sync.php
 
 return [
-    // Translation service: 'google', 'deepl', 'azure', 'aws', 'dummy'
-    'service' => env('TRANSLATION_SERVICE', 'google'),
+    // Translation service: 'libretranslate', 'mymemory', 'google', 'dummy'
+    'service' => env('TRANSLATION_SERVICE', 'libretranslate'),
 
     // Source language (language of your translation keys)
     'source_language' => env('TRANSLATION_SOURCE_LANG', 'en'),
+
+    // Target languages (defaults to Arabic - change as needed!)
+    'target_languages' => env('TRANSLATION_TARGET_LANGS', ['ar']),
+
+    // File format: 'php' (Laravel default) or 'json'
+    'file_format' => env('TRANSLATION_FILE_FORMAT', 'php'),
 
     // Enable automatic translation
     'auto_translate' => env('TRANSLATION_AUTO_TRANSLATE', false),
 
     // Translation service configurations
     'services' => [
+        'libretranslate' => [], // No config needed - FREE!
+        'mymemory' => [], // No config needed - FREE!
         'google' => [
             'api_key' => env('GOOGLE_TRANSLATE_API_KEY', null),
         ],
@@ -159,7 +167,10 @@ php artisan translations:sync --auto --translate
 php artisan translations:sync --translate --service=google
 
 # Set source and target languages
-php artisan translations:sync --translate --source=en --targets=es,fr,de
+php artisan translations:sync --translate --source=en --targets=ar,en
+
+# Or use the --locales alias
+php artisan translations:sync --translate --locales=ar,en
 
 # Dry run (preview changes without making them)
 php artisan translations:sync --dry-run

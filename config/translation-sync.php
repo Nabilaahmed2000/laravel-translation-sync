@@ -60,7 +60,7 @@ return [
     | app locales except the source language.
     |
     */
-    'target_languages' => env('TRANSLATION_TARGET_LANGS', null),
+    'target_languages' => env('TRANSLATION_TARGET_LANGS', ['ar']),
 
     /*
     |--------------------------------------------------------------------------
@@ -130,5 +130,5 @@ return [
     | Format for translation files: 'json' or 'php'
     |
     */
-    'file_format' => env('TRANSLATION_FILE_FORMAT', 'json'),
+    'file_format' => env('TRANSLATION_FILE_FORMAT', 'php'),
 ];

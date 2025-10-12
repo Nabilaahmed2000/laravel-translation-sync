@@ -12,14 +12,15 @@ class SyncTranslations extends Command
     protected $signature = 'translations:sync 
                             {--auto : Automatically add translations without confirmation}
                             {--translate : Enable automatic translation of missing keys}
-                            {--service= : Translation service to use (google, dummy)}
-                            {--source= : Source language code}
-                            {--targets= : Comma-separated target language codes}
+                            {--service= : Translation service to use (libretranslate, mymemory, google, dummy)}
+                            {--source= : Source language code (default: en)}
+                            {--targets= : Comma-separated target language codes (e.g., --targets=ar,fr)}
+                            {--locales= : Alias for --targets}
                             {--dry-run : Show what would be done without making changes}
                             {--stats : Show translation statistics}
                             {--format= : Output format (json, php)}';
 
-    protected $description = 'Find untranslated strings and sync them to translation files with optional automatic translation.';
+    protected $description = 'Find untranslated strings and sync them to translation files with optional automatic translation using free services.';
 
     protected ScannerService $scanner;
     protected TranslationWriter $writer;
@@ -144,7 +145,7 @@ class SyncTranslations extends Command
             config(['translation-sync.source_language' => $source]);
         }
 
-        if ($targets = $this->option('targets')) {
+        if ($targets = $this->option('targets') ?: $this->option('locales')) {
             config(['translation-sync.target_languages' => explode(',', $targets)]);
         }
 
