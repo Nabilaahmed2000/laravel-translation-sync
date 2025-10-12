@@ -68,6 +68,19 @@ Start using it immediately:
 php artisan translations:sync --translate --auto
 ```
 
+## 🧪 Testing Your Installation
+
+After installation, test that everything works:
+
+```bash
+# Run the test script
+php test-package.php
+
+# Or test with Laravel commands
+php artisan translations:sync --stats
+php artisan translations:sync --translate --dry-run
+```
+
 ## Configuration
 
 The package comes with a comprehensive configuration file. Here are the key settings:
