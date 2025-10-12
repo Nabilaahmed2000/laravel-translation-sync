@@ -1,6 +1,7 @@
 {
     "name": "nabila/laravel-translation-sync",
     "description": "A Laravel package to detect untranslated strings and automatically translate them using various translation services like Google Translate, DeepL, and more.",
+    "version": "2.0.0",
     "type": "library",
     "keywords": [
         "laravel",
@@ -11,13 +12,11 @@
         "deepl",
         "automation"
     ],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Nabila",
-            "email": "nabila@example.com"
-        }
-    ],
+    "homepage": "https://github.com/Nabilaahmed2000/laravel-translation-sync",
+    "support": {
+        "issues": "https://github.com/Nabilaahmed2000/laravel-translation-sync/issues",
+        "source": "https://github.com/Nabilaahmed2000/laravel-translation-sync"
+    },
     "autoload": {
         "psr-4": {
             "Nabila\\TranslationSync\\": "src/"
@@ -43,6 +42,6 @@
     "config": {
         "sort-packages": true
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }
