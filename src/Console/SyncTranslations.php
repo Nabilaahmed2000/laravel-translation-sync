@@ -94,7 +94,13 @@ class SyncTranslations extends Command
 
         if ($options['auto_translate'] && !$this->writer->isTranslationServiceAvailable()) {
             $this->warn('⚠️  Auto-translation requested but no translation service is available or configured.');
-            $this->info('💡 Available services: ' . implode(', ', array_keys(TranslationServiceFactory::getAvailableServices())));
+            $this->info('💡 Available services:');
+            $freeServices = TranslationServiceFactory::getFreeServices();
+            foreach ($freeServices as $key => $name) {
+                $this->info("   ✅ {$key}: {$name}");
+            }
+            $this->info('   💰 google: Google Translate (requires API key and billing)');
+            $this->info('   🧪 dummy: Dummy Service (for testing)');
             return Command::FAILURE;
         }
 

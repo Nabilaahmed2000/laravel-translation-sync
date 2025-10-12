@@ -7,10 +7,10 @@ return [
     |--------------------------------------------------------------------------
     |
     | Choose the translation service to use for automatic translations.
-    | Available: 'google', 'deepl', 'azure', 'aws', 'dummy'
+    | Available: 'libretranslate' (free), 'mymemory' (free), 'google' (paid), 'dummy' (testing)
     |
     */
-    'service' => env('TRANSLATION_SERVICE', 'google'),
+    'service' => env('TRANSLATION_SERVICE', 'libretranslate'),
 
     /*
     |--------------------------------------------------------------------------

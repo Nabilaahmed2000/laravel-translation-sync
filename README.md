@@ -58,10 +58,10 @@ return [
 Add these to your `.env` file:
 
 ```env
-TRANSLATION_SERVICE=google
+TRANSLATION_SERVICE=libretranslate
 TRANSLATION_SOURCE_LANG=en
 TRANSLATION_AUTO_TRANSLATE=true
-GOOGLE_TRANSLATE_API_KEY=your-google-translate-api-key
+# No API key needed for free services!
 ```
 
 > 📋 **Need help getting a Google Translate API key?** Check out our [Quick Setup Guide](GOOGLE_TRANSLATE_SETUP.md) for step-by-step instructions!
@@ -108,14 +108,49 @@ php artisan translations:sync --format=php
 
 ## Translation Services
 
-### Google Translate
+### 🚀 **Free Services (No API Keys Required!)**
+
+#### LibreTranslate (Default - Recommended)
+**Completely free, open-source translation service**
+
+```env
+TRANSLATION_SERVICE=libretranslate
+```
+
+- ✅ **No API key required**
+- ✅ **No billing needed**
+- ✅ **Open source and self-hosted**
+- ✅ **Supports 50+ languages**
+- ✅ **Fast and reliable**
+
+#### MyMemory
+**Community-driven translation service**
+
+```env
+TRANSLATION_SERVICE=mymemory
+```
+
+- ✅ **No API key required**
+- ✅ **No billing needed**
+- ✅ **Community translations**
+- ✅ **Supports 80+ languages**
+
+### 💰 **Paid Services**
+
+#### Google Translate
+**Professional translation service**
 
 ```env
 TRANSLATION_SERVICE=google
 GOOGLE_TRANSLATE_API_KEY=your-api-key
 ```
 
-#### How to Get Google Translate API Key
+- ✅ **High quality translations**
+- ✅ **Supports all major languages**
+- ⚠️ **Requires billing setup**
+- ⚠️ **API key required**
+
+> 📋 **Need help with Google Translate API?** Check out our [Quick Setup Guide](GOOGLE_TRANSLATE_SETUP.md)
 
 Follow these steps to obtain your Google Translate API key:
 
@@ -171,7 +206,10 @@ Follow these steps to obtain your Google Translate API key:
 - **Character Limit**: 30,000 characters per request
 - **Rate Limit**: Can be increased by requesting quota increases
 
-### Dummy Service (for testing)
+### 🧪 **Testing Service**
+
+#### Dummy Service
+**For development and testing**
 
 ```env
 TRANSLATION_SERVICE=dummy
