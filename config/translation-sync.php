@@ -10,7 +10,7 @@ return [
     | Available: 'libretranslate' (free), 'mymemory' (free), 'google' (paid), 'dummy' (testing)
     |
     */
-    'service' => env('TRANSLATION_SERVICE', 'libretranslate'),
+    'service' => env('TRANSLATION_SERVICE', 'mymemory'),
 
     /*
     |--------------------------------------------------------------------------
