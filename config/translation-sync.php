@@ -7,10 +7,10 @@ return [
     |--------------------------------------------------------------------------
     |
     | Choose the translation service to use for automatic translations.
-    | Available: 'libretranslate' (free), 'mymemory' (free), 'google' (paid), 'dummy' (testing)
+    | Available: 'libretranslate' (free), 'mymemory' (free), 'freetranslateapi' (self-hosted, free), 'google' (paid), 'dummy' (testing)
     |
     */
-    'service' => env('TRANSLATION_SERVICE', 'mymemory'),
+    'service' => env('TRANSLATION_SERVICE', 'freetranslateapi'),
 
     /*
     |--------------------------------------------------------------------------
@@ -38,6 +38,16 @@ return [
             'secret_access_key' => env('AWS_SECRET_ACCESS_KEY', null),
             'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
         ],
+        'libretranslate' => [
+            'url' => env('LIBRETRANSLATE_URL', 'https://libretranslate.com'),
+            'api_key' => env('LIBRETRANSLATE_API_KEY', null),
+        ],
+        'mymemory' => [
+            'email' => env('MYMEMORY_EMAIL', null),
+        ],
+        'freetranslateapi' => [
+            'url' => env('FREETRANSLATEAPI_URL', 'http://localhost:5000'),
+        ]
     ],
 
     /*
@@ -94,31 +104,13 @@ return [
     | Regex patterns to find translation keys in your code
     |
     */
-    'patterns' => [
-        "/__\(['\"](.+?)['\"]\)/",
-        "/@lang\(['\"](.+?)['\"]\)/",
-        "/trans\(['\"](.+?)['\"]\)/",
-        "/Lang::get\(['\"](.+?)['\"]\)/",
-    ],
-
+    // ...existing code...
     /*
     |--------------------------------------------------------------------------
-    | Auto Translation
+    | Fallback Strategy
     |--------------------------------------------------------------------------
     |
-    | Whether to automatically translate missing keys or prompt for each one
-    |
-    */
-    'auto_translate' => env('TRANSLATION_AUTO_TRANSLATE', false),
-
-    /*
-    |--------------------------------------------------------------------------
-    | Fallback Translation
-    |--------------------------------------------------------------------------
-    |
-    | What to use as translation when auto-translation fails
-    | Options: 'key' (use the key itself), 'empty' (empty string), 'ask' (prompt user)
-    |
+    | Strategy to use when translation is missing: 'key', 'empty', etc.
     */
     'fallback_strategy' => env('TRANSLATION_FALLBACK_STRATEGY', 'key'),
 

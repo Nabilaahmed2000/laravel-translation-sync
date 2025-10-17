@@ -119,6 +119,9 @@ return [
         'google' => [
             'api_key' => env('GOOGLE_TRANSLATE_API_KEY', null),
         ],
+        'freetranslateapi' => [
+            'url' => env('FREETRANSLATEAPI_URL', 'http://localhost:5000'),
+        ],
         // ... other services
     ],
 ];
@@ -292,6 +295,40 @@ TRANSLATION_SERVICE=dummy
 ```
 
 The dummy service is useful for testing and development. It simply appends the target language code to the original text.
+
+## 🆓 Using FreeTranslateApi (Self-hosted, Free)
+
+### 1. Host the API
+- Clone https://github.com/ismalzikri/free-translate-api
+- Follow its README to run locally (`npm install && npm start`) or deploy to a server.
+
+### 2. Configure the Package
+- In your `.env` file, set:
+  ```
+  TRANSLATION_SERVICE=freetranslateapi
+  FREETRANSLATEAPI_URL=http://localhost:5000
+  ```
+  (Change the URL if hosted elsewhere.)
+
+- In `config/translation-sync.php`, ensure:
+  ```php
+  'service' => env('TRANSLATION_SERVICE', 'freetranslateapi'),
+
+  'services' => [
+      // ...existing code...
+      'freetranslateapi' => [
+          'url' => env('FREETRANSLATEAPI_URL', 'http://localhost:5000'),
+      ],
+  ],
+  ```
+
+### 3. Usage
+- Run your translation sync commands as usual.
+- The package will use your FreeTranslateApi instance for translations.
+
+### 4. Notes
+- FreeTranslateApi is free and self-hosted, so you control usage and limits.
+- Make sure your API server is running and accessible from your Laravel app.
 
 ## Supported Translation Patterns
 

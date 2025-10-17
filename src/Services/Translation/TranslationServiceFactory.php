@@ -27,6 +27,9 @@ class TranslationServiceFactory
             case 'mymemory':
                 return new MyMemoryService($config);
 
+            case 'freetranslateapi':
+                return new FreeTranslateApiService($config);
+
             case 'dummy':
                 return new DummyTranslationService($config);
 
@@ -45,6 +48,7 @@ class TranslationServiceFactory
         return [
             'libretranslate' => 'LibreTranslate (Free, Open Source)',
             'mymemory' => 'MyMemory (Free, Community-driven)',
+            'freetranslateapi' => 'Free Translate API (Self-hosted, Free)',
             'google' => 'Google Translate (Paid API)',
             'dummy' => 'Dummy Service (for testing)',
         ];
@@ -60,6 +64,7 @@ class TranslationServiceFactory
         return [
             'libretranslate' => 'LibreTranslate (Free, Open Source)',
             'mymemory' => 'MyMemory (Free, Community-driven)',
+            'freetranslateapi' => 'Free Translate API (Self-hosted, Free)',
         ];
     }
 }
