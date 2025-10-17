@@ -34,16 +34,16 @@ class FreeTranslateApiService implements TranslationServiceInterface
         try {
             $response = $this->client->post('/translate', [
                 'json' => [
-                    'q' => $text,
-                    'source' => $sourceLanguage ?? 'auto',
-                    'target' => $targetLanguage,
+                    'text' => $text,
+                    'to' => $targetLanguage,
                 ]
             ]);
-            $data = json_decode($response->getBody(), true);
-            if (isset($data['translatedText'])) {
-                return $data['translatedText'];
+            // The API returns the translated string directly
+            $translated = (string) $response->getBody();
+            if (!empty($translated)) {
+                return $translated;
             }
-            throw new Exception('Translation failed: ' . json_encode($data));
+            throw new Exception('Translation failed: Empty response');
         } catch (Exception $e) {
             throw new Exception('FreeTranslateApi error: ' . $e->getMessage());
         }
